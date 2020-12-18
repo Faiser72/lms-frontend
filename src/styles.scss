@@ -125,15 +125,15 @@ body {
 
 
 .theme-dark {
-   $lms-primary: mat-palette($mat-deep-orange);
+    $lms-primary: mat-palette($mat-deep-orange);
     $lms-theme-dark: mat-dark-theme($lms-primary,
-    $lms-accent,
-    $lms-warn);
+            $lms-accent,
+            $lms-warn);
     @include angular-material-theme($lms-theme-dark);
 }
 
 .theme-light {
     $lms-primary: mat-palette($mat-blue-grey);
-    $lms-theme: mat-light-theme($lms-primary, $lms-accent, $lms-warn);
+    $lms-theme  : mat-light-theme($lms-primary, $lms-accent, $lms-warn);
     @include angular-material-theme($lms-theme);
 }
