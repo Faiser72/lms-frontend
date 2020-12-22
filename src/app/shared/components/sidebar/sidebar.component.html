@@ -1,21 +1,21 @@
 <mat-nav-list>
-  <div class="profile-card">
-    <!-- <img src="assets/img/doctor/doctor.png" alt="{{ currentUserAvatar }}" class="my-3" *ngIf='doctorId==null'/> -->
-    <img [src]="placeholder_path" alt="" width="150px" height="180px" class="p-1 profile-holder my-3" />
-    <div class="header">
-      <h5>{{currentUserName}}</h5>
-      <h6>{{currentUserName}}@lms.com</h6>
+    <div class="profile-card">
+        <!-- <img src="assets/img/doctor/doctor.png" alt="{{ currentUserAvatar }}" class="my-3" *ngIf='doctorId==null'/> -->
+        <img [src]="placeholder_path" alt="" width="150px" height="180px" class="p-1 profile-holder my-3" />
+        <div class="header">
+            <h5>{{currentUserName}}</h5>
+            <h6>{{currentUserName}}@lms.com</h6>
+        </div>
     </div>
-  </div>
 
-  <mat-divider></mat-divider>
-  <h2 matSubheader>Pages</h2>
+    <mat-divider></mat-divider>
+    <h2 matSubheader>Pages</h2>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="">
-    <mat-icon color="primary">dvr</mat-icon>Template
-  </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="">
+        <mat-icon color="primary">dvr</mat-icon>Template
+    </a>
 
-  <!-- <span>
+    <!-- <span>
     <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent mb-1" (click)="toggleSubmenu('master_submenu')">
       <mat-icon>menu_book</mat-icon>
       <span class="full-width">Master</span>

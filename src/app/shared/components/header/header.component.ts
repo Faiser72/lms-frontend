@@ -60,6 +60,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['home/changepassword'])
   }
 
+  doLogout(){
+    
+  }
+
 
 
   //for popup aboutuser  popup
