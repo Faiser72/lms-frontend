@@ -7,6 +7,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { TemplateModule } from "src/app/modules/template/template.module";
 import { MaterialImportModuleModule } from "src/app/shared/material-import-module/material-import-module.module";
+import { AdminModule } from "src/app/modules/admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialImportModuleModule } from "src/app/shared/material-import-modul
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
-    TemplateModule
+    TemplateModule,
+    AdminModule
   ],
 })
 export class DefaultModule { }

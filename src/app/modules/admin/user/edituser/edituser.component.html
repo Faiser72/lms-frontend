@@ -1,0 +1,138 @@
+<div class="container-fluid mt-3 p-0">
+    <mat-card class=" shadow">
+        <div class="card-title">
+            <h4 class="text-center main-bg pt-3 mt-1">- Edit User -</h4>
+        </div>
+        <div class="mx-auto text-center">
+            <mat-divider class="w-75" color="primary"></mat-divider>
+        </div>
+        <form action="" class="form-group customhover" [formGroup]="editUserForm" (ngSubmit)="editUserFormSubmit()">
+            <div class="row d-flex justify-content-around mt-4 ml-5 mr-5 w-75 mx-auto">
+                <div class="col-lg-6 col-sm-12 col-md-6">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Name <sup class="text-danger">*</sup></mat-label>
+                        <input matInput placeholder="Ex. Shankar" value="" formControlName="userName" />
+                        <mat-icon matSuffix color="primary"><i class="fa fa-user" aria-hidden="true"></i></mat-icon>
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('userName') && editUserForm.get('userName').touched && editUserForm.get('userName').invalid">
+                        Please enter this field</p>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-6">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Registration No<sup class="text-danger">*</sup></mat-label>
+                        <input matInput placeholder="Ex. VTPL123" value="" formControlName="registrationNo" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('registrationNo') && editUserForm.get('registrationNo').touched && editUserForm.get('registrationNo').invalid">
+                        Please enter this field</p>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-around ml-5 mr-5 w-75 mx-auto">
+                <div class="col-lg-6 col-md-12 col-sm-12 mx-auto">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Age<sup class="text-danger">*</sup></mat-label>
+                        <input matInput placeholder="Ex. 25" value="" formControlName="age" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('age') && editUserForm.get('age').touched && editUserForm.get('age').invalid">
+                        Please enter Your Age</p>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 mx-auto">
+                    <mat-form-field appearance="outline" class="field-full-width">
+                        <mat-label>Gender</mat-label>
+                        <mat-select formControlName="gender">
+                            <mat-option value="male">Male</mat-option>
+                            <mat-option value="female">Female</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('gender') && editUserForm.get('gender').touched && editUserForm.get('gender').invalid">
+                        Please select your gender</p>
+                </div>
+
+            </div>
+
+            <div class="row d-flex justify-content-around ml-5 mr-5 w-75 mx-auto">
+                <div class="col-lg-6 col-sm-12 col-md-6">
+                    <mat-form-field appearance="outline" class="field-full-width">
+                        <mat-label>Primary Role</mat-label>
+                        <mat-select [formControl]="primaryRole" multiple>
+                            <mat-select-trigger>
+                                {{primaryRole.value ? primaryRole.value[0] : ''}}
+                                <span *ngIf="primaryRole.value?.length > 1" class="example-additional-selection">
+                                    (+{{primaryRole.value.length - 1}} {{primaryRole.value?.length === 2 ? 'other' :
+                                    'others'}})
+                                </span>
+                            </mat-select-trigger>
+                            <mat-option *ngFor="let role of roleList" [value]="role">{{role}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('primaryRole') && editUserForm.get('primaryRole').touched && editUserForm.get('primaryRole').invalid">
+                        Please enter this field</p>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-6">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Email Id <sup class="text-danger">*</sup></mat-label>
+                        <input matInput type="email" placeholder="Ex. example@abcd.com" value="" formControlName="emailId" />
+                        <mat-icon matSuffix color="primary">email</mat-icon>
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('appointmentTime') && editUserForm.get('appointmentTime').touched && editUserForm.get('appointmentTime').invalid">
+                        Please enter a valid email id</p>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-around ml-5 mr-5 w-75 mx-auto">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Telephone <sup class="text-danger">*</sup></mat-label>
+                        <span matPrefix>+91 &nbsp;</span>
+                        <input type="tel" matInput placeholder="555-555-1234" formControlName="phoneNumber">
+                        <mat-icon matSuffix color="primary">phone</mat-icon>
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('phoneNumber') && editUserForm.get('phoneNumber').touched && editUserForm.get('phoneNumber').invalid">
+                        Please enter a valid email id</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Address <sup class="text-danger">*</sup></mat-label>
+                        <textarea matInput placeholder="Ex. #83, 6th cross opposite to kfc, jalahalli bangalore" formControlName="address"></textarea>
+                        <mat-icon matSuffix color="primary">home</mat-icon>
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('address') && editUserForm.get('address').touched && editUserForm.get('address').invalid">
+                        Please enter this field</p>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-around ml-5 mr-5 w-75 mx-auto">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Aadhar No <sup class="text-danger">*</sup></mat-label>
+                        <input matInput placeholder="Ex. 945678921345" value="" formControlName="aadharNo" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('aadharNo') && editUserForm.get('aadharNo').touched && editUserForm.get('aadharNo').invalid">
+                        Please enter this field</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Pan No <sup class="text-danger">*</sup></mat-label>
+                        <input matInput placeholder="Ex. ABCDE1234F" value="" formControlName="panNo" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editUserForm.get('panNo') && editUserForm.get('panNo').touched && editUserForm.get('panNo').invalid">
+                        Please enter this field</p>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-around mt-4 ml-5 mr-5">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around">
+                    <button type="submit" mat-raised-button color="primary" [disabled]='editUserForm.invalid'>
+                        <mat-icon class="mr-2">save</mat-icon>Submit
+                    </button>
+                    <button type="reset" mat-raised-button color="accent" (click)='reset()'>
+                        <mat-icon class="mr-2">360</mat-icon>Reset
+                    </button>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

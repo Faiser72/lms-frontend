@@ -43,7 +43,7 @@ $lms-warn: mat-palette($mat-red);
     --main-font-1-color: #ffffff;
     --main-font-2-color: #000000;
     --main-font-3-color: #32AEB1;
-    --main-font-4-color: rgba(250, 175, 63, 1);
+    // --main-font-4-color: rgba(250, 175, 63, 1);
     --main-font-5-color: #137779;
     /* Tiles */
     --main-tile-1-color: #382f9c;
@@ -81,23 +81,39 @@ button {
 }
 
 .theme-dark {
-    --main-brand-color: #caec05;
-    $lms-primary: mat-palette($mat-lime, A400);
-    $lms-theme-dark: mat-dark-theme($lms-primary, $lms-accent, $lms-warn);
-    @include angular-material-theme($lms-theme-dark);
-    // .mat-list-option,
-    // .mat-nav-list .mat-list-item,
-    // .mat-action-list .mat-list-item {
-    //     &:hover,
-    //     &:focus {
-    //         background: #c8ff008f;
-    //     }
-    // }
+    --main-font-2-color: #fae9ba;
+    --main-font-3-color: #673ab7;
+    --main-font-4-color: #e96695;
+    $lms-primary: mat-palette($mat-deep-purple, 500);
+    // $lms-theme-dark: mat-dark-theme($lms-primary, $lms-accent, $lms-warn);
+    // @include angular-material-theme($lms-theme-dark);
+    $lms-theme: mat-light-theme($lms-primary, $lms-accent, $lms-warn);
+    @include angular-material-theme($lms-theme);
+    .mat-list-option,
+    .mat-nav-list .mat-list-item,
+    .mat-action-list .mat-list-item {
+        &:hover,
+        &:focus {
+            background: #683ab783;
+            // color: lightgoldenrodyellow;
+        }
+    }
 }
 
 .theme-light {
-    --main-brand-color: #ff5722;
+    --main-font-2-color: #fae9ba;
+    --main-font-3-color: #ff5722;
+    --main-font-4-color: #01a4cd;
     $lms-primary: mat-palette($mat-deep-orange);
     $lms-theme: mat-light-theme($lms-primary, $lms-accent, $lms-warn);
     @include angular-material-theme($lms-theme);
+    .mat-list-option,
+    .mat-nav-list .mat-list-item,
+    .mat-action-list .mat-list-item {
+        &:hover,
+        &:focus {
+            background: #ff562277;
+            // color: lightgoldenrodyellow;
+        }
+    }
 }
