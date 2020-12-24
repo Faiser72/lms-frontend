@@ -1,3 +1,4 @@
+import { InstructorModule } from './../../modules/instructor/instructor.module';
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { DefaultComponent } from "./default.component";
@@ -22,7 +23,8 @@ import { AdminModule } from "src/app/modules/admin/admin.module";
     ReactiveFormsModule,
     FormsModule,
     TemplateModule,
-    AdminModule
+    AdminModule,
+    InstructorModule
   ],
 })
 export class DefaultModule { }

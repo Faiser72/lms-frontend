@@ -1,3 +1,5 @@
+import { ManagecourseComponent } from './modules/instructor/course/managecourse/managecourse.component';
+import { ManagecategoryComponent } from './modules/instructor/category/managecategory/managecategory.component';
 import { ManagemediaComponent } from './modules/admin/media/managemedia/managemedia.component';
 import { ManageevaluationComponent } from './modules/admin/evaluation/manageevaluation/manageevaluation.component';
 import { ListuserComponent } from './modules/admin/user/listuser/listuser.component';
@@ -15,6 +17,7 @@ const routes: Routes = [
     path: "", component: DefaultComponent,
     children: [
       { path: "", component: TemplateComponent },
+      // Admin starts here
       {
         path: "userhome",
         component: UserhomeComponent,
@@ -25,7 +28,14 @@ const routes: Routes = [
         ],
       },
       { path: "manageevaluation", component: ManageevaluationComponent },
-      { path: "managemedia", component: ManagemediaComponent }
+      { path: "managemedia", component: ManagemediaComponent },
+      // Admin ends here
+
+      // instructor starts here
+      { path: "managecategory", component: ManagecategoryComponent },
+      { path: "managecourse", component: ManagecourseComponent }
+      // instructor ends here
+
     ]
   }];
 

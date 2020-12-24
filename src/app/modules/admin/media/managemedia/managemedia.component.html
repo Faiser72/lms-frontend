@@ -5,12 +5,13 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." />
     </mat-form-field>
 </div> -->
-<div class="row d-flex justify-content-around  w-100 mx-auto">
+<div class="row d-flex justify-content-around  w-100 mx-auto mt-5">
     <div class="col-lg-8 col-md-12 col-sm-12">
         <div class="row d-flex justify-content-around ml-5 mr-5 w-100 mx-auto">
             <div class="col-lg-8 col-md-12 col-sm-12 text-center ">
                 <mat-form-field appearance="outline" class="field-full-width">
                     <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." />
+                    <mat-icon color="primary" matSuffix>search</mat-icon>
                 </mat-form-field>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 mx-auto">

@@ -1,83 +1,66 @@
 <br />
-<h4 class="title-header">- Manage Evaluation -</h4>
-<!-- <div class="text-center">
-    <mat-form-field>
+<h4 class="title-header">- Course List -</h4>
+<div class="text-right">
+    <button (click)="openAddCourseDialog()" class="addButton btn">New Course</button>
+</div>
+<div class="text-center">
+    <mat-form-field class="matFormField">
         <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." />
     </mat-form-field>
-</div> -->
-<div class="row d-flex justify-content-around ml-5 mr-5 w-100 mx-auto mt-5">
-    <div class="col-lg-8 col-md-12 col-sm-12 text-center ">
-        <mat-form-field appearance="outline" class="field-full-width">
-            <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." />
-            <mat-icon color="primary" matSuffix>search</mat-icon>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-4 col-md-12 col-sm-12 mx-auto">
-        <mat-form-field appearance="outline" class="field-full-width">
-            <mat-label>Filter</mat-label>
-            <mat-select>
-                <mat-option value="all">ALL</mat-option>
-                <mat-option value="pending">PENDING</mat-option>
-                <mat-option value="submitted">SUBMITTED</mat-option>
-                <mat-option value="evaluated">EVALUATED</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-
 </div>
 
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
         <!-- ID Column -->
-        <ng-container matColumnDef="slNo">
+        <!-- <ng-container matColumnDef="slNo">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">Sl.no</th>
             <td mat-cell *matCellDef="let row">
                 {{dataSource.filteredData.indexOf(row) + 1}}.</td>
-        </ng-container>
+        </ng-container> -->
 
-        <!-- userName Column -->
-        <ng-container matColumnDef="userName">
+        <!-- category Column -->
+        <ng-container matColumnDef="category">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
-                Name
+                Category
             </th>
             <td mat-cell *matCellDef="let row">
-                {{ row.userName }}</td>
+                {{ row.category }}</td>
         </ng-container>
 
-        <!-- emailId Column -->
-        <ng-container matColumnDef="emailId">
+        <!-- course Column -->
+        <ng-container matColumnDef="course">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
-                Email Id
+                Course
             </th>
             <td mat-cell *matCellDef="let row">
-                {{ row.emailId }}</td>
+                {{ row.course }}</td>
         </ng-container>
 
-        <!-- PrimaryRoles Column -->
-        <ng-container matColumnDef="primaryRoles">
+        <!-- session/chapter Column -->
+        <ng-container matColumnDef="session">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
-                Primary Roles
+                Session/Chapter
             </th>
             <td mat-cell *matCellDef="let row">
-                {{ row.primaryRoles }}</td>
+                {{ row.session }}</td>
         </ng-container>
 
-        <!-- role Column -->
-        <ng-container matColumnDef="role">
+        <!-- modifiedOn Column -->
+        <ng-container matColumnDef="modifiedOn">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
-                Role
+                Modified On
             </th>
             <td mat-cell *matCellDef="let row">
-                {{ row.role }}</td>
+                {{ row.modifiedOn }}</td>
         </ng-container>
 
-        <!-- registerNo Column -->
-        <ng-container matColumnDef="registerNo">
+        <!-- status Column -->
+        <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
-                Register No
+                Status
             </th>
             <td mat-cell *matCellDef="let row">
-                {{ row.registerNo }}</td>
+                {{ row.status }}</td>
         </ng-container>
 
         <!-- Action Column -->
