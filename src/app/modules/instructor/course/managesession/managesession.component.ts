@@ -4,23 +4,22 @@ import { MatPaginator, MatSort, MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-managecourse',
-  templateUrl: './managecourse.component.html',
-  styleUrls: ['./managecourse.component.scss']
+  selector: 'app-managesession',
+  templateUrl: './managesession.component.html',
+  styleUrls: ['./managesession.component.scss']
 })
-export class ManagecourseComponent implements OnInit {
+export class ManagesessionComponent implements OnInit {
 
   dataSource: any;
   displayedColumns: string[] = [
-    "category",
-    "course",
     "session",
-    "modifiedOn",
-    "status",
+    "title",
+    "description",
     "action"
   ];
 
   userDetailsList: any;
+  courseName:any="multithreading";
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -60,18 +59,18 @@ export class ManagecourseComponent implements OnInit {
     this.route.navigate(['userhome/adduser'])
   }
 
-  routeToOpenSession(){
-    this.route.navigate(['/managesession'])
+  routeToChapter(){
+    this.route.navigate(['/managechapter'])
   }
 
-  //for Add Course popup Starts here
-  openAddCourseDialog(): void {
+  //for Add Session popup Starts here
+  openAddSessionDialog(): void {
     var printObj = {
 
     }
-    const dialogRef = this.dialog.open(AddCourse, {
-      width: "1000px",
-      // height: "600px",
+    const dialogRef = this.dialog.open(AddSession, {
+      width: "450px",
+      height: "500px",
       data: { pageValue: printObj }
     });
 
@@ -79,16 +78,16 @@ export class ManagecourseComponent implements OnInit {
       console.log('The dialog was closed', result);
     });
   }
-  //for AddCourse popup ends here
+  //for AddSession popup ends here
 
-  //for EditCourse popup Starts here
-  openEditCourseDialog(): void {
+  //for Edit Session popup Starts here
+  openEditSessionDialog(): void {
     var printObj = {
 
     }
-    const dialogRef = this.dialog.open(EditCourse, {
-      width: "1000px",
-      // height: "600px",
+    const dialogRef = this.dialog.open(EditSession, {
+      width: "450px",
+      height: "500px",
       data: { pageValue: printObj }
     });
 
@@ -96,25 +95,26 @@ export class ManagecourseComponent implements OnInit {
       console.log('The dialog was closed', result);
     });
   }
-  //for EditCourse popup ends here
+  //for EditSession popup ends here
+
 }
 
-//AddCourse Starts Here
+//AddSession Starts Here
 @Component({
-  selector: "addcourse",
-  templateUrl: "addcourse.html",
-  styleUrls: ["./managecourse.component.scss"],
+  selector: "addsession",
+  templateUrl: "addsession.html",
+  styleUrls: ["./managesession.component.scss"],
 })
-export class AddCourse {
+export class AddSession {
 
 
   printObj;
-  addCourseForm: FormGroup;
+  addSessionForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
     public dialog: MatDialog,
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<AddCourse>,
+    public dialogRef: MatDialogRef<AddSession>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.printObj = data.pageValue;
@@ -124,48 +124,45 @@ export class AddCourse {
     this.dialogRef.close();
   }
   ngOnInit() {
-    this.addCourseFormBuilder();
+    this.addSessionFormBuilder();
 
   }
-  addCourseFormBuilder() {
-    this.addCourseForm = this.fb.group({
-      title: [null, [Validators.required, Validators.minLength(3)]],
-      category: [null, [Validators.required]],
-      author: [null, [Validators.required,]],
-      cost: [null, [Validators.required,]],
+
+  addSessionFormBuilder() {
+    this.addSessionForm = this.fb.group({
+      title: [null, [Validators.required]],
       description: [null, [Validators.required]],
-      whatYouLearn: [null, [Validators.required]],
-      whoShouldTakeCourse: [null, [Validators.required]],
+      sessionNo: [null, [Validators.required]],
     });
   }
 
 
-  addCourseFormSubmit() {
-    console.log(this.addCourseForm.value);
+  addSessionFormSubmit() {
+    console.log(this.addSessionForm.value);
   }
 
   close() {
     this.dialogRef.close();
   }
 }
-//Add Course ends Here
+//Add Session ends Here
 
-//EditCourse Starts Here
+//EditSession Starts Here
 @Component({
-  selector: "editcourse",
-  templateUrl: "editcourse.html",
-  styleUrls: ["./managecourse.component.scss"],
+  selector: "editsession",
+  templateUrl: "editsession.html",
+  styleUrls: ["./managesession.component.scss"],
 })
-export class EditCourse {
+export class EditSession {
 
 
   printObj;
-  editCourseForm: FormGroup;
+  editSessionForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
     public dialog: MatDialog,
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<EditCourse>,
+    public dialogRef: MatDialogRef<EditSession>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.printObj = data.pageValue;
@@ -175,28 +172,24 @@ export class EditCourse {
     this.dialogRef.close();
   }
   ngOnInit() {
-    this.editCourseFormBuilder();
+    this.editSessionFormBuilder();
 
   }
-  editCourseFormBuilder() {
-    this.editCourseForm = this.fb.group({
-      title: [null, [Validators.required, Validators.minLength(3)]],
-      category: [null, [Validators.required]],
-      author: [null, [Validators.required,]],
-      cost: [null, [Validators.required,]],
+  editSessionFormBuilder() {
+    this.editSessionForm = this.fb.group({
+      title: [null, [Validators.required]],
       description: [null, [Validators.required]],
-      whatYouLearn: [null, [Validators.required]],
-      whoShouldTakeCourse: [null, [Validators.required]],
+      sessionNo: [null, [Validators.required]],
     });
   }
 
 
-  editCourseFormSubmit() {
-    console.log(this.editCourseForm.value);
+  editSessionFormSubmit() {
+    console.log(this.editSessionForm.value);
   }
 
   close() {
     this.dialogRef.close();
   }
 }
-//Edit Course ends Here
+//Edit Session ends Here

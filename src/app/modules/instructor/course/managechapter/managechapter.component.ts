@@ -1,26 +1,28 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatPaginator, MatSort, MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-managecourse',
-  templateUrl: './managecourse.component.html',
-  styleUrls: ['./managecourse.component.scss']
+  selector: 'app-managechapter',
+  templateUrl: './managechapter.component.html',
+  styleUrls: ['./managechapter.component.scss']
 })
-export class ManagecourseComponent implements OnInit {
+export class ManagechapterComponent implements OnInit {
 
   dataSource: any;
   displayedColumns: string[] = [
-    "category",
-    "course",
-    "session",
-    "modifiedOn",
-    "status",
+    "chapter",
+    "title",
+    "description",
     "action"
   ];
 
   userDetailsList: any;
+  courseName:any="multithreading";
+  url: string = "../../../../../assets/videos/saiyaara.webm";
+  urlSafe: SafeResourceUrl;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -28,9 +30,11 @@ export class ManagecourseComponent implements OnInit {
   constructor(
     private route: Router,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
   customFilter() {
@@ -60,16 +64,12 @@ export class ManagecourseComponent implements OnInit {
     this.route.navigate(['userhome/adduser'])
   }
 
-  routeToOpenSession(){
-    this.route.navigate(['/managesession'])
-  }
-
-  //for Add Course popup Starts here
-  openAddCourseDialog(): void {
+  //for AddChapter popup Starts here
+  openAddChapterDialog(): void {
     var printObj = {
 
     }
-    const dialogRef = this.dialog.open(AddCourse, {
+    const dialogRef = this.dialog.open(AddChapter, {
       width: "1000px",
       // height: "600px",
       data: { pageValue: printObj }
@@ -79,14 +79,14 @@ export class ManagecourseComponent implements OnInit {
       console.log('The dialog was closed', result);
     });
   }
-  //for AddCourse popup ends here
+  //for AddChapter popup ends here
 
-  //for EditCourse popup Starts here
-  openEditCourseDialog(): void {
+  //for EditChapter popup Starts here
+  openEditChapterDialog(): void {
     var printObj = {
 
     }
-    const dialogRef = this.dialog.open(EditCourse, {
+    const dialogRef = this.dialog.open(EditChapter, {
       width: "1000px",
       // height: "600px",
       data: { pageValue: printObj }
@@ -96,25 +96,26 @@ export class ManagecourseComponent implements OnInit {
       console.log('The dialog was closed', result);
     });
   }
-  //for EditCourse popup ends here
+  //for EditChapter popup ends here
+
 }
 
-//AddCourse Starts Here
+//addchapter Starts Here
 @Component({
-  selector: "addcourse",
-  templateUrl: "addcourse.html",
-  styleUrls: ["./managecourse.component.scss"],
+  selector: "addchapter",
+  templateUrl: "addchapter.html",
+  styleUrls: ["./managechapter.component.scss"],
 })
-export class AddCourse {
+export class AddChapter {
 
 
   printObj;
-  addCourseForm: FormGroup;
+  addChapterForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
     public dialog: MatDialog,
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<AddCourse>,
+    public dialogRef: MatDialogRef<AddChapter>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.printObj = data.pageValue;
@@ -124,48 +125,46 @@ export class AddCourse {
     this.dialogRef.close();
   }
   ngOnInit() {
-    this.addCourseFormBuilder();
+    this.addChapterFormBuilder();
 
   }
-  addCourseFormBuilder() {
-    this.addCourseForm = this.fb.group({
-      title: [null, [Validators.required, Validators.minLength(3)]],
-      category: [null, [Validators.required]],
-      author: [null, [Validators.required,]],
-      cost: [null, [Validators.required,]],
+
+  addChapterFormBuilder() {
+    this.addChapterForm = this.fb.group({
+      title: [null, [Validators.required]],
       description: [null, [Validators.required]],
-      whatYouLearn: [null, [Validators.required]],
-      whoShouldTakeCourse: [null, [Validators.required]],
+      chapterNo: [null, [Validators.required]],
+      duration: [null, [Validators.required]],
     });
   }
 
 
-  addCourseFormSubmit() {
-    console.log(this.addCourseForm.value);
+  addChapterFormSubmit() {
+    console.log(this.addChapterForm.value);
   }
 
   close() {
     this.dialogRef.close();
   }
 }
-//Add Course ends Here
+//Add Chapter ends Here
 
-//EditCourse Starts Here
+//editchapter Starts Here
 @Component({
-  selector: "editcourse",
-  templateUrl: "editcourse.html",
-  styleUrls: ["./managecourse.component.scss"],
+  selector: "editchapter",
+  templateUrl: "editchapter.html",
+  styleUrls: ["./managechapter.component.scss"],
 })
-export class EditCourse {
+export class EditChapter {
 
 
   printObj;
-  editCourseForm: FormGroup;
+  editChapterForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
     public dialog: MatDialog,
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<EditCourse>,
+    public dialogRef: MatDialogRef<EditChapter>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.printObj = data.pageValue;
@@ -175,28 +174,24 @@ export class EditCourse {
     this.dialogRef.close();
   }
   ngOnInit() {
-    this.editCourseFormBuilder();
+    this.editChapterFormBuilder();
 
   }
-  editCourseFormBuilder() {
-    this.editCourseForm = this.fb.group({
-      title: [null, [Validators.required, Validators.minLength(3)]],
-      category: [null, [Validators.required]],
-      author: [null, [Validators.required,]],
-      cost: [null, [Validators.required,]],
+  editChapterFormBuilder() {
+    this.editChapterForm = this.fb.group({
+      title: [null, [Validators.required]],
       description: [null, [Validators.required]],
-      whatYouLearn: [null, [Validators.required]],
-      whoShouldTakeCourse: [null, [Validators.required]],
+      sessionNo: [null, [Validators.required]],
     });
   }
 
 
-  editCourseFormSubmit() {
-    console.log(this.editCourseForm.value);
+  editChapterFormSubmit() {
+    console.log(this.editChapterForm.value);
   }
 
   close() {
     this.dialogRef.close();
   }
 }
-//Edit Course ends Here
+//Edit Chapter ends Here
