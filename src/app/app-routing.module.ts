@@ -1,3 +1,4 @@
+import { UploadquestionpaperComponent } from './modules/instructor/question/uploadquestionpaper/uploadquestionpaper.component';
 import { ManagesessionComponent } from './modules/instructor/course/managesession/managesession.component';
 import { ManagecourseComponent } from './modules/instructor/course/managecourse/managecourse.component';
 import { ManagecategoryComponent } from './modules/instructor/category/managecategory/managecategory.component';
@@ -12,6 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 import { TemplateComponent } from './modules/template/template/template.component';
 import { ManagechapterComponent } from './modules/instructor/course/managechapter/managechapter.component';
+import { QuestionbankComponent } from './modules/instructor/question/questionbank/questionbank.component';
 
 
 const routes: Routes = [
@@ -37,7 +39,10 @@ const routes: Routes = [
       { path: "managecategory", component: ManagecategoryComponent },
       { path: "managecourse", component: ManagecourseComponent },
       { path: "managesession", component: ManagesessionComponent },
-      { path: "managechapter", component: ManagechapterComponent }
+      { path: "managechapter", component: ManagechapterComponent },
+      { path: "uploadquestionpaper", component: UploadquestionpaperComponent },
+      { path: "questionbank", component: QuestionbankComponent }
+
 
       // instructor ends here
 

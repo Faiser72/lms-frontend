@@ -82,14 +82,14 @@ button {
 
 .theme-dark {
     --main-font-2-color: #fae9ba;
-    --main-font-3-color: #673ab7;
-    --main-font-4-color: #e96695;
-    --main-bg-1-color: #683ab775;
-    $lms-primary: mat-palette($mat-deep-purple, 500);
-    // $lms-theme-dark: mat-dark-theme($lms-primary, $lms-accent, $lms-warn);
-    // @include angular-material-theme($lms-theme-dark);
-    $lms-theme: mat-light-theme($lms-primary, $lms-accent, $lms-warn);
-    @include angular-material-theme($lms-theme);
+    --main-font-3-color: #ff5722;
+    --main-font-4-color: #01a4cd;
+    --main-bg-1-color: #ff562265;
+    $lms-primary: mat-palette($mat-deep-orange);
+    // $lms-theme: mat-light-theme($lms-primary, $lms-accent, $lms-warn);
+    // @include angular-material-theme($lms-theme);
+    $lms-theme-dark: mat-dark-theme($lms-primary, $lms-accent, $lms-warn);
+    @include angular-material-theme($lms-theme-dark);
     .mat-list-option,
     .mat-nav-list .mat-list-item,
     .mat-action-list .mat-list-item {
@@ -103,10 +103,10 @@ button {
 
 .theme-light {
     --main-font-2-color: #fae9ba;
-    --main-font-3-color: #ff5722;
-    --main-font-4-color: #01a4cd;
-    --main-bg-1-color: #ff562265;
-    $lms-primary: mat-palette($mat-deep-orange);
+    --main-font-3-color: #673ab7;
+    --main-font-4-color: #e96695;
+    --main-bg-1-color: #683ab775;
+    $lms-primary: mat-palette($mat-deep-purple, 500);
     $lms-theme: mat-light-theme($lms-primary, $lms-accent, $lms-warn);
     @include angular-material-theme($lms-theme);
     .mat-list-option,

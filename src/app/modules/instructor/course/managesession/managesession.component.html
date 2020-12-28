@@ -1,7 +1,19 @@
+<!-- 
+File Name :-managesession.component.html	   	Created Date :-25-12-2020     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
+	
+Description :- this component is used to Manage Session					
+	
+============================================================================================================================
+  Sl.No			    Description			                                Modified By		              	      Modified Date	
+============================================================================================================================
+	
+ -->
+
 <br />
 <h4 class="title-header">- Session List -</h4>
 <div class="text-right">
-    <button (click)="openAddSessionDialog()" class="addButton btn" mat-raised-button color="primary">New Session</button>
+    <button (click)="openAddSessionDialog()" class="addButton btn" mat-raised-button color="primary">New
+        Session</button>
 </div>
 
 <div class="row">
@@ -57,13 +69,13 @@
             <th mat-header-cell *matHeaderCellDef class="table_header">Action</th>
             <td mat-cell *matCellDef="let row">
                 <div class="action-btn">
-                    <a (click)="openEditSessionDialog(this.row)" class="action-link">
+                    <a (click)="openEditSessionDialog()" class="action-link">
                         <mat-icon class="edit-btn" title="Edit">edit</mat-icon>
                     </a>
                 </div>
                 <span style="color: #3f51b5;">|</span>
                 <div class="action-btn">
-                    <a (click)="routeToDeleteUser(this.row)" class="action-link">
+                    <a (click)="routeToDeleteUser()" class="action-link">
                         <mat-icon class="delete-btn" title="Delete">delete_forever</mat-icon>
                     </a>
                 </div>
@@ -89,6 +101,6 @@
         <mat-icon class="edit-btn" title="Edit">edit</mat-icon>
     </a>
     <a (click)="routeToChapter()" class="action-link">
-        <mat-icon class="edit-btn" title="Edit">edit</mat-icon>
+        <mat-icon class="edit-btn" title="Manage Chapter">closed_caption</mat-icon>
     </a>
 </div>

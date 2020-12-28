@@ -1,7 +1,7 @@
 <!-- 
-File Name :-addcategory.component.html	   	Created Date :-24-12-2020     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
+File Name :-addquestionbank.html	   	Created Date :-28-12-2020     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
 	
-Description :- this component is used to add category					
+Description :- this component is used to add question Bank				
 	
 ============================================================================================================================
   Sl.No			    Description			                                Modified By		              	      Modified Date	
@@ -19,18 +19,40 @@ Description :- this component is used to add category
             <p class="logo">LMS</p>
         </div>
         <div class="col-lg-10">
-            <h5 class="title-header">-- Add Category --</h5>
+            <h5 class="title-header">-- Add Question Bank --</h5>
         </div>
     </div>
-    <form class="form-group customhover" [formGroup]="addCategoryForm" (ngSubmit)="addCategoryFormSubmit()">
+    <form class="form-group customhover" [formGroup]="addQuestionBankForm" (ngSubmit)="addQuestionBankFormSubmit()">
         <div class="forms">
             <div class="row  mt-3  mx-auto w-100">
                 <div class="col-lg-12 col-sm-12 col-md-12">
                     <mat-form-field class="field-full-width" appearance="outline">
-                        <mat-label>Name</mat-label>
-                        <input matInput placeholder="Ex. Data Science" value="" formControlName="name" />
+                        <mat-label>Category</mat-label>
+                        <input matInput placeholder="Ex. Data Science" value="" formControlName="category" />
                     </mat-form-field>
-                    <p style="color: red;" *ngIf="addCategoryForm.get('name') && addCategoryForm.get('name').touched && addCategoryForm.get('name').invalid">
+                    <p style="color: red;" *ngIf="addQuestionBankForm.get('category') && addQuestionBankForm.get('category').touched && addQuestionBankForm.get('category').invalid">
+                        Please select category</p>
+                </div>
+            </div>
+
+            <div class="row  w-100  mx-auto">
+                <div class="col-lg-12 col-sm-12 col-md-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Course</mat-label>
+                        <input matInput placeholder="Ex. Data Science" value="" formControlName="course" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="addQuestionBankForm.get('course') && addQuestionBankForm.get('course').touched && addQuestionBankForm.get('course').invalid">
+                        Please select Course</p>
+                </div>
+            </div>
+
+            <div class="row  w-100  mx-auto">
+                <div class="col-lg-12 col-sm-12 col-md-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Question bank Name</mat-label>
+                        <input matInput placeholder="Ex. Data Science" value="" formControlName="questionBankName" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="addQuestionBankForm.get('questionBankName') && addQuestionBankForm.get('questionBankName').touched && addQuestionBankForm.get('questionBankName').invalid">
                         Please enter this field</p>
                 </div>
             </div>
@@ -42,14 +64,14 @@ Description :- this component is used to add category
                         <textarea matInput placeholder="Ex.Data science is an inter-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from many structural and unstructured data." formControlName="description"
                             class="desc-textarea"></textarea>
                     </mat-form-field>
-                    <p style="color: red;" *ngIf="addCategoryForm.get('description') && addCategoryForm.get('description').touched && addCategoryForm.get('description').invalid">
+                    <p style="color: red;" *ngIf="addQuestionBankForm.get('description') && addQuestionBankForm.get('description').touched && addQuestionBankForm.get('description').invalid">
                         Please enter this field</p>
                 </div>
             </div>
         </div>
         <div class="row d-flex justify-content-around mt-4 ml-5 mr-5">
             <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-around mb-2">
-                <button type="submit" mat-raised-button color="primary" [disabled]='addCategoryForm.invalid'>
+                <button type="submit" mat-raised-button color="primary" [disabled]='addQuestionBankForm.invalid'>
                     <mat-icon class="mr-2">save</mat-icon>Submit
                 </button>
             </div>

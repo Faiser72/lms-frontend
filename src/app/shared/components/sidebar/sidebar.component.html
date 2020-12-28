@@ -1,3 +1,15 @@
+<!-- 
+File Name :-sidebar.component.html	   	Created Date :-18-12-2020     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
+	
+Description :- this is the side bar component, this component is used to add other components in sidebar,					
+	
+============================================================================================================================
+  Sl.No			    Description			                                Modified By		              	      Modified Date	
+============================================================================================================================
+	
+	
+ -->
+
 <mat-nav-list>
     <div class="profile-card">
         <!-- <img src="assets/img/doctor/doctor.png" alt="{{ currentUserAvatar }}" class="my-3" *ngIf='doctorId==null'/> -->
@@ -39,6 +51,15 @@
         <mat-icon color="primary"><i class="fa fa-braille" aria-hidden="true"></i>
         </mat-icon>Manage Course
     </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/uploadquestionpaper">
+        <mat-icon color="primary">assignment
+        </mat-icon>Upload Q Paper
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/questionbank">
+        <mat-icon color="primary">question_answer
+        </mat-icon>Question Bank
+    </a>
+
 
 
     <!-- <span>

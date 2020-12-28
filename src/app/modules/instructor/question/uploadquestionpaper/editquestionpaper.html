@@ -1,0 +1,105 @@
+<!-- 
+File Name :-editquestionpaper.component.html	   	Created Date :-28-12-2020     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
+	
+Description :- this component is used to edit questionpaper					
+	
+============================================================================================================================
+  Sl.No			    Description			                                Modified By		              	      Modified Date	
+============================================================================================================================
+	
+	
+ -->
+
+<!-- <mat-icon matSuffix style="float: right; cursor: pointer;" color="accent" (click)='close()'>clear</mat-icon> -->
+<!-- <h4 mat-dialog-title class="dialog-title">Interview Rounds Detail</h4> -->
+
+<div mat-dialog-content class="addCategory">
+    <div class="row">
+        <div class="col-lg-2 text-left">
+            <p class="logo">LMS</p>
+        </div>
+        <div class="col-lg-10">
+            <h5 class="title-header">-- Upload Question Paper --</h5>
+        </div>
+    </div>
+    <form class="form-group customhover" [formGroup]="editQuestionPaperForm" (ngSubmit)="editQuestionPaperFormSubmit()">
+        <div class="forms">
+            <div class="row  mt-3  mx-auto w-100 d-flex justify-content-around">
+                <div class="col-lg-6 col-sm-12 col-md-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <input matInput placeholder="Ex. Data Science" value="" formControlName="category" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editQuestionPaperForm.get('category') && editQuestionPaperForm.get('category').touched && editQuestionPaperForm.get('category').invalid">
+                        Please Select Category</p>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Course</mat-label>
+                        <input matInput placeholder="Ex. Data Science" value="" formControlName="course" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editQuestionPaperForm.get('course') && editQuestionPaperForm.get('course').touched && editQuestionPaperForm.get('course').invalid">
+                        Please select course</p>
+                </div>
+            </div>
+
+            <div class="row  w-100  mx-auto d-flex justify-content-around">
+                <div class="col-lg-6 col-sm-12 col-md-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Question Paper Title</mat-label>
+                        <input matInput placeholder="Ex. Data Science" value="" formControlName="questionPaperTitle" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editQuestionPaperForm.get('questionPaperTitle') && editQuestionPaperForm.get('questionPaperTitle').touched && editQuestionPaperForm.get('questionPaperTitle').invalid">
+                        Please enter this field</p>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Max Marks</mat-label>
+                        <input matInput placeholder="Ex. 625" value="" formControlName="maxMarks" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editQuestionPaperForm.get('maxMarks') && editQuestionPaperForm.get('maxMarks').touched && editQuestionPaperForm.get('maxMarks').invalid">
+                        Please select course</p>
+                </div>
+            </div>
+
+            <div class="row  w-100  mx-auto d-flex justify-content-around">
+                <div class="col-lg-12 col-sm-12 col-md-12">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Duration</mat-label>
+                        <input matInput placeholder="Ex. Data Science" value="" formControlName="duration" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editQuestionPaperForm.get('duration') && editQuestionPaperForm.get('duration').touched && editQuestionPaperForm.get('duration').invalid">
+                        Please select course</p>
+                </div>
+            </div>
+
+            <div class="row  w-100  mx-auto">
+                <div class="col-lg-12 col-sm-12 col-md-12 mb-3">
+                    <!-- <button type="button" mat-raised-button color="primary" class="w-100">Upload Question Paper</button> -->
+                    <input type="file" class="form-control fileUpload" accept="application/pdf" id="fileUpload" #uploadQuestionPaper hidden (change)="getQuestionPaperFile(uploadQuestionPaper,$event)" formControlName="questionPaper" />
+                    <div>
+                        <button type="button" mat-raised-button color="primary" class="w-100" (click)="uploadQuestionPaper.click()">
+                            <mat-icon class="mr-2"><i class="fa fa-upload" aria-hidden="true"></i>
+                            </mat-icon>
+                            Upload Question Paper
+                        </button>
+                        <span class="file-name">&nbsp;{{questionPaperFileName}}&nbsp;</span>
+                        <span style="color:red;" *ngIf="questionPaperMessage">{{questionPaperMessage}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-around mt-4 ml-5 mr-5 mb-3">
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-around mb-2">
+                    <button type="submit" mat-raised-button color="primary" [disabled]='editQuestionPaperForm.invalid'>
+                        <mat-icon class="mr-2">save</mat-icon>Submit
+                    </button>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-around">
+                    <button type="button" mat-raised-button color="accent" (click)="close()">
+                        <mat-icon class="mr-2">360</mat-icon>Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

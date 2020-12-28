@@ -1,28 +1,25 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatPaginator, MatSort, MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-managechapter',
-  templateUrl: './managechapter.component.html',
-  styleUrls: ['./managechapter.component.scss']
+  selector: 'app-questionbank',
+  templateUrl: './questionbank.component.html',
+  styleUrls: ['./questionbank.component.scss']
 })
-export class ManagechapterComponent implements OnInit {
+export class QuestionbankComponent implements OnInit {
 
   dataSource: any;
   displayedColumns: string[] = [
-    "chapter",
-    "title",
-    "description",
+    "category",
+    "course",
+    "questionBankName",
     "action"
   ];
 
   userDetailsList: any;
   courseName: any = "multithreading";
-  url: string = "../../../../../assets/videos/saiyaara.webm";
-  urlSafe: SafeResourceUrl;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -30,11 +27,9 @@ export class ManagechapterComponent implements OnInit {
   constructor(
     private route: Router,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog,
-    public sanitizer: DomSanitizer) { }
+    public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
   customFilter() {
@@ -54,30 +49,28 @@ export class ManagechapterComponent implements OnInit {
   }
 
   routeToDeleteUser() {
-
-  }
-
-  routeToSession() {
-    this.route.navigate(['managesession'])
   }
 
 
-  routeToEditUser() {
+  routeToEditUser(userDetails: any) {
   }
 
-  routeToCourse() {
-    this.route.navigate(['managecourse'])
+  routeToAddUser() {
+    this.route.navigate(['userhome/adduser'])
   }
 
+  routeToChapter() {
+    this.route.navigate(['/managechapter'])
+  }
 
-  //for AddChapter popup Starts here
-  openAddChapterDialog(): void {
+  //for Add QuestionPaper popup Starts here
+  openAddQuestionBankDialog(): void {
     var printObj = {
 
     }
-    const dialogRef = this.dialog.open(AddChapter, {
-      width: "1000px",
-      // height: "600px",
+    const dialogRef = this.dialog.open(AddQuestionBank, {
+      width: "500px",
+      // height: "500px",
       data: { pageValue: printObj }
     });
 
@@ -85,16 +78,16 @@ export class ManagechapterComponent implements OnInit {
       console.log('The dialog was closed', result);
     });
   }
-  //for AddChapter popup ends here
+  //for AddQuestionPaper popup ends here
 
-  //for EditChapter popup Starts here
-  openEditChapterDialog(): void {
+  //for EditQuestionPaper popup Starts here
+  openEditQuestionBankDialog(): void {
     var printObj = {
 
     }
-    const dialogRef = this.dialog.open(EditChapter, {
-      width: "1000px",
-      // height: "600px",
+    const dialogRef = this.dialog.open(EditQuestionBank, {
+      width: "550px",
+      // height: "500px",
       data: { pageValue: printObj }
     });
 
@@ -102,26 +95,26 @@ export class ManagechapterComponent implements OnInit {
       console.log('The dialog was closed', result);
     });
   }
-  //for EditChapter popup ends here
+  //for EditQuestionPaper popup ends here
 
 }
 
-//addchapter Starts Here
+//addquestionbank Starts Here
 @Component({
-  selector: "addchapter",
-  templateUrl: "addchapter.html",
-  styleUrls: ["./managechapter.component.scss"],
+  selector: "addquestionbank",
+  templateUrl: "addquestionbank.html",
+  styleUrls: ["./questionbank.component.scss"],
 })
-export class AddChapter {
+export class AddQuestionBank {
 
 
   printObj;
-  addChapterForm: FormGroup;
+  addQuestionBankForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
     public dialog: MatDialog,
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<AddChapter>,
+    public dialogRef: MatDialogRef<AddQuestionBank>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.printObj = data.pageValue;
@@ -131,46 +124,45 @@ export class AddChapter {
     this.dialogRef.close();
   }
   ngOnInit() {
-    this.addChapterFormBuilder();
+    this.addQuestionBankFormBuilder();
 
   }
 
-  addChapterFormBuilder() {
-    this.addChapterForm = this.fb.group({
-      title: [null, [Validators.required]],
+  addQuestionBankFormBuilder() {
+    this.addQuestionBankForm = this.fb.group({
+      category: [null, [Validators.required]],
+      course: [null, [Validators.required]],
+      questionBankName: [null, [Validators.required]],
       description: [null, [Validators.required]],
-      chapterNo: [null, [Validators.required]],
-      duration: [null, [Validators.required]],
     });
   }
 
-
-  addChapterFormSubmit() {
-    console.log(this.addChapterForm.value);
+  addQuestionBankFormSubmit() {
+    console.log(this.addQuestionBankForm.value);
   }
 
   close() {
     this.dialogRef.close();
   }
 }
-//Add Chapter ends Here
+//addquestionbank ends Here
 
-//editchapter Starts Here
+//editquestionbank Starts Here
 @Component({
-  selector: "editchapter",
-  templateUrl: "editchapter.html",
-  styleUrls: ["./managechapter.component.scss"],
+  selector: "editquestionbank",
+  templateUrl: "editquestionbank.html",
+  styleUrls: ["./questionbank.component.scss"],
 })
-export class EditChapter {
+export class EditQuestionBank {
 
 
   printObj;
-  editChapterForm: FormGroup;
+  editQuestionBankForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
     public dialog: MatDialog,
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<EditChapter>,
+    public dialogRef: MatDialogRef<EditQuestionBank>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.printObj = data.pageValue;
@@ -180,24 +172,24 @@ export class EditChapter {
     this.dialogRef.close();
   }
   ngOnInit() {
-    this.editChapterFormBuilder();
+    this.editQuestionBankFormBuilder();
 
   }
-  editChapterFormBuilder() {
-    this.editChapterForm = this.fb.group({
-      title: [null, [Validators.required]],
+  editQuestionBankFormBuilder() {
+    this.editQuestionBankForm = this.fb.group({
+      category: [null, [Validators.required]],
+      course: [null, [Validators.required]],
+      questionBankName: [null, [Validators.required]],
       description: [null, [Validators.required]],
-      sessionNo: [null, [Validators.required]],
     });
   }
 
-
-  editChapterFormSubmit() {
-    console.log(this.editChapterForm.value);
+  editQuestionBankFormSubmit() {
+    console.log(this.editQuestionBankForm.value);
   }
 
   close() {
     this.dialogRef.close();
   }
 }
-//Edit Chapter ends Here
+//editquestionbank ends Here

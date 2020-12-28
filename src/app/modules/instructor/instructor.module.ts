@@ -1,3 +1,4 @@
+import { QuestionModule } from './question/question.module';
 import { CourseModule } from './course/course.module';
 import { CategoryModule } from './category/category.module';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     CategoryModule,
-    CourseModule
+    CourseModule,
+    QuestionModule
   ]
 })
 export class InstructorModule { }

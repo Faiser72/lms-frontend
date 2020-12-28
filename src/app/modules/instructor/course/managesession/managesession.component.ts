@@ -48,7 +48,7 @@ export class ManagesessionComponent implements OnInit {
     }
   }
 
-  routeToDeleteUser(userDetails) {
+  routeToDeleteUser() {
   }
 
 

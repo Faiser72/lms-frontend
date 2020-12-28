@@ -1,3 +1,15 @@
+<!-- 
+File Name :-addchapter.component.html	   	Created Date :-25-12-2020     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
+	
+Description :- this component is used to add chapter					
+	
+============================================================================================================================
+  Sl.No			    Description			                                Modified By		              	      Modified Date	
+============================================================================================================================
+	
+	
+ -->
+
 <!-- <mat-icon matSuffix style="float: right; cursor: pointer;" color="accent" (click)='close()'>clear</mat-icon> -->
 <!-- <h4 mat-dialog-title class="dialog-title">Interview Rounds Detail</h4> -->
 
@@ -46,8 +58,6 @@
                             <mat-form-field class="field-full-width" appearance="outline">
                                 <mat-label>Duration</mat-label>
                                 <input matInput placeholder="Ex. 700" value="" formControlName="duration" />
-                                <mat-icon color='primary' matPrefix><i class="fa fa-inr" aria-hidden="true"></i>
-                                </mat-icon>
                             </mat-form-field>
                             <p style="color: red;" *ngIf="addChapterForm.get('duration') && addChapterForm.get('duration').touched && addChapterForm.get('duration').invalid">
                                 Please enter this field</p>
