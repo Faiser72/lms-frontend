@@ -1,3 +1,6 @@
+import { EditquestionComponent } from './modules/instructor/question/editquestion/editquestion.component';
+import { AddquestionComponent } from './modules/instructor/question/addquestion/addquestion.component';
+import { ManagequestionComponent } from './modules/instructor/question/managequestion/managequestion.component';
 import { UploadquestionpaperComponent } from './modules/instructor/question/uploadquestionpaper/uploadquestionpaper.component';
 import { ManagesessionComponent } from './modules/instructor/course/managesession/managesession.component';
 import { ManagecourseComponent } from './modules/instructor/course/managecourse/managecourse.component';
@@ -41,7 +44,11 @@ const routes: Routes = [
       { path: "managesession", component: ManagesessionComponent },
       { path: "managechapter", component: ManagechapterComponent },
       { path: "uploadquestionpaper", component: UploadquestionpaperComponent },
-      { path: "questionbank", component: QuestionbankComponent }
+      { path: "questionbank", component: QuestionbankComponent },
+      { path: "managequestion", component: ManagequestionComponent },
+      { path: "addquestion", component: AddquestionComponent },
+      { path: "editquestion", component: EditquestionComponent },
+
 
 
       // instructor ends here

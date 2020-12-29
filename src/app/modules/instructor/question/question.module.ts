@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddQuestionPaper, EditQuestionPaper, UploadquestionpaperComponent } from './uploadquestionpaper/uploadquestionpaper.component';
 import { QuestionbankComponent, AddQuestionBank, EditQuestionBank } from './questionbank/questionbank.component';
+import { ManagequestionComponent } from './managequestion/managequestion.component';
+import { AddquestionComponent } from './addquestion/addquestion.component';
+import { EditquestionComponent } from './editquestion/editquestion.component';
 
 
 
@@ -14,7 +17,10 @@ import { QuestionbankComponent, AddQuestionBank, EditQuestionBank } from './ques
     EditQuestionPaper,
     QuestionbankComponent,
     AddQuestionBank,
-    EditQuestionBank],
+    EditQuestionBank,
+    ManagequestionComponent,
+    AddquestionComponent,
+    EditquestionComponent],
   imports: [
     CommonModule,
     MaterialImportModuleModule,

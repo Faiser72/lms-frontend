@@ -63,6 +63,10 @@ export class QuestionbankComponent implements OnInit {
     this.route.navigate(['/managechapter'])
   }
 
+  routeToManageQuestion(){
+    this.route.navigate(['/managequestion'])
+  }
+
   //for Add QuestionPaper popup Starts here
   openAddQuestionBankDialog(): void {
     var printObj = {
