@@ -1,0 +1,133 @@
+<!-- 
+File Name :-scheduletest.component.html	   	Created Date :-30-12-2020     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
+	
+Description :- this component is used to manage schu					
+	
+============================================================================================================================
+  Sl.No			    Description			                                Modified By		              	      Modified Date	
+============================================================================================================================
+	
+	
+ -->
+
+<br />
+<!-- <h4 class="title-header">- Category List -</h4> -->
+<div class="row">
+    <div class="col">
+        <div class="text-left">
+            <mat-form-field appearance="outline" class="matFormField">
+                <mat-label>Available From</mat-label>
+                <input matInput (keyup)="applyFilter($event)" type="date" placeholder="Search here..." />
+                <!-- <mat-icon color="primary" matSuffix>search</mat-icon> -->
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col">
+        <div class="text-left">
+            <mat-form-field appearance="outline" class="matFormField">
+                <mat-label>To</mat-label>
+                <input matInput (keyup)="applyFilter($event)" type="date" placeholder="Search here..." />
+                <!-- <mat-icon color="primary" matSuffix>search</mat-icon> -->
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col">
+        <div class="text-right">
+            <button (click)="openAddScheduleTestDialog()" class="addButton btn" mat-raised-button color="primary">New Schedule Test</button>
+        </div>
+    </div>
+</div>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <!-- <ng-container matColumnDef="slNo">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">Sl.no</th>
+             <td mat-cell *matCellDef="let row">
+                 {{dataSource.filteredData.indexOf(row) + 1}}.</td>
+         </ng-container> -->
+
+        <!-- courseName Column -->
+        <ng-container matColumnDef="courseName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Course Name
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.courseName }}</td>
+        </ng-container>
+
+        <!-- testTitle Column -->
+        <ng-container matColumnDef="testTitle">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Test Title
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.testTitle }}</td>
+        </ng-container>
+
+        <!-- questionPaperType Column -->
+        <ng-container matColumnDef="questionPaperType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Question Paper Type
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.questionPaperType }}</td>
+        </ng-container>
+
+        <!-- startDate Column -->
+        <ng-container matColumnDef="startDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Start Date
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.startDate }}</td>
+        </ng-container>
+
+        <!-- endDate Column -->
+        <ng-container matColumnDef="endDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                End Date
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.courseName }}</td>
+        </ng-container>
+
+        <!-- users Column -->
+        <ng-container matColumnDef="users">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                # Users
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.testTitle }}</td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="table_header">Action</th>
+            <td mat-cell *matCellDef="let row">
+                <div class="action-btn">
+                    <a (click)="openEditScheduleTestDialog()" class="action-link">
+                        <mat-icon class="edit-btn" title="Edit">edit</mat-icon>
+                    </a>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="row-style" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+<div class="text-right mt-5">
+    <div class="action-btn">
+        <a (click)="openEditScheduleTestDialog()" class="action-link">
+            <mat-icon class="edit-btn" title="Edit">edit</mat-icon>
+        </a>
+        <a (click)="routeToAddStudent()" class="action-link">
+            <mat-icon class="edit-btn" title="Manage Assignment"><i class="fa fa-file-text" aria-hidden="true"></i>
+            </mat-icon>
+        </a>
+    </div>
+</div>
+<br />

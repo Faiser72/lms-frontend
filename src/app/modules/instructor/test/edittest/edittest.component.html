@@ -1,0 +1,208 @@
+<!-- 
+File Name :-edittest.component.html	   	Created Date :-30-12-2020     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
+	
+Description :- this component is used to edit test				
+	
+============================================================================================================================
+  Sl.No			    Description			                                Modified By		              	      Modified Date	
+============================================================================================================================
+	
+	
+ -->
+
+<div class="container-fluid mt-3 p-0">
+    <mat-card class=" shadow border ">
+        <div class="card-title">
+            <h4 class="text-center main-bg pt-3 mt-1">- Edit Test -</h4>
+        </div>
+        <div class="mx-auto text-center divider mt-2">
+            <mat-divider class="w-75 " color="primary"></mat-divider>
+        </div>
+        <form action="" class="form-group customhover" [formGroup]="editTestForm" (ngSubmit)="editTestFormSubmit()">
+            <div class="row d-flex justify-content-around mt-5 ml-5 mr-5 w-75 mx-auto">
+                <div class="col-lg-6 col-sm-12 col-md-6">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Course Name </mat-label>
+                        <input matInput placeholder="Ex. Full Stack Development" value="" formControlName="courseName" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editTestForm.get('courseName') && editTestForm.get('courseName').touched && editTestForm.get('courseName').invalid">
+                        Please enter this field</p>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-6">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Test Name </mat-label>
+                        <input matInput placeholder="Ex. Unit Test" value="" formControlName="testName" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editTestForm.get('testName') && editTestForm.get('testName').touched && editTestForm.get('testName').invalid">
+                        Please enter this field</p>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-around ml-5 mr-5 w-75 mx-auto">
+                <div class="col-lg-6 col-sm-12 col-md-6">
+                    <mat-form-field class="field-full-width" appearance="outline">
+                        <mat-label>Max Score</mat-label>
+                        <input matInput placeholder="Ex. 60" value="" formControlName="maxScore" />
+                    </mat-form-field>
+                    <p style="color: red;" *ngIf="editTestForm.get('maxScore') && editTestForm.get('maxScore').touched && editTestForm.get('maxScore').invalid">
+                        Please enter this field</p>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 mx-auto">
+                    <mat-checkbox class="checkbox-margin" labelPosition='before' color='primary' (change)="showOptions($event)">Timed test</mat-checkbox>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 mx-auto" *ngIf="isChecked">
+                    <p>Duration: </p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field class="field-full-width">
+                                <input matInput placeholder="HH" value="" type="number" />
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="field-full-width">
+                                <input matInput placeholder="MM" value="" type="number" />
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="field-full-width">
+                                <input matInput placeholder="SS" value="" type="number" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center ml-5 mr-5 w-100 mx-auto">
+                <div class="col-lg-6 col-sm-12 col-md-6 text-center">
+                    <button mat-stroked-button type="button" color="primary">Add Question</button>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-around ml-5 mr-5 w-100 mx-auto mt-3">
+                <div class="col-lg-8 col-sm-12 col-md-6 ">
+                    <div class="mat-elevation-z8 mt-5 ">
+                        <table mat-table [dataSource]="dataSource" matSort>
+                            <!-- ID Column -->
+                            <!-- <ng-container matColumnDef="slNo">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">Sl.no</th>
+                                  <td mat-cell *matCellDef="let row">
+                                      {{dataSource.filteredData.indexOf(row) + 1}}.</td>
+                              </ng-container> -->
+
+                            <!-- question Column -->
+                            <ng-container matColumnDef="question">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                                    Question
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.question }}</td>
+                            </ng-container>
+
+                            <!-- questionBank Column -->
+                            <ng-container matColumnDef="questionBank">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                                    Question Bank
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.questionBank }}</td>
+                            </ng-container>
+
+                            <!-- questionType Column -->
+                            <ng-container matColumnDef="questionType">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                                    Question Type
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.questionType }}</td>
+                            </ng-container>
+
+                            <!-- answerType Column -->
+                            <ng-container matColumnDef="answerType">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                                    Answer Type
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.answerType }}</td>
+                            </ng-container>
+
+                            <!-- marks Column -->
+                            <ng-container matColumnDef="marks">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                                    Marks
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.marks }}</td>
+                            </ng-container>
+
+                            <!-- complexity Column -->
+                            <ng-container matColumnDef="complexity">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                                    Complexity
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{ row.complexity }}</td>
+                            </ng-container>
+
+
+                            <!-- Action Column -->
+                            <!-- <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef class="table_header">Action</th>
+                                <td mat-cell *matCellDef="let row">
+                                    <div class="action-btn">
+                                        <a (click)="openEditQuestionBankDialog()" class="action-link">
+                                            <mat-icon class="edit-btn" title="Edit">edit</mat-icon>
+                                        </a>
+                                    </div>
+                                    <span style="color: #3f51b5;">|</span>
+                                    <div class="action-btn">
+                                        <a (click)="routeToDeleteUser()" class="action-link">
+                                            <mat-icon class="delete-btn" title="Delete">delete_forever</mat-icon>
+                                        </a>
+                                    </div>
+                                    <span style="color: #3f51b5;">|</span>
+                                    <div class="action-btn">
+                                        <a class="action-link">
+                                            <mat-icon class="delete-btn" title="Preliminary Check">description
+                                            </mat-icon>
+                                        </a>
+                                    </div>
+                                </td>
+                            </ng-container> -->
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr class="row-style" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+                        </table>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                    </div>
+                    <br />
+                </div>
+                <div class="col-lg-4 col-sm-12 col-md-6 ">
+                    <p>Question View</p>
+                    <mat-card class="w-100 questionCard shadow" matRipple>
+
+                    </mat-card>
+                </div>
+
+            </div>
+
+
+            <div class="row d-flex justify-content-around mt-4 ml-5 mr-5">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around">
+                    <button type="submit" mat-raised-button color="primary" [disabled]='editTestForm.invalid'>
+                        <mat-icon class="mr-2">save</mat-icon>Submit
+                    </button>
+                    <button type="reset" mat-raised-button color="accent" (click)='reset()'>
+                        <mat-icon class="mr-2">360</mat-icon>Reset
+                    </button>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

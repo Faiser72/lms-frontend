@@ -1,3 +1,4 @@
+import { DashboardModule } from './../../modules/dashboard/dashboard.module';
 import { InstructorModule } from './../../modules/instructor/instructor.module';
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -22,6 +23,7 @@ import { AdminModule } from "src/app/modules/admin/admin.module";
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
+    DashboardModule,
     TemplateModule,
     AdminModule,
     InstructorModule

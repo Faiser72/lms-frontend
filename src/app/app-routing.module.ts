@@ -1,3 +1,9 @@
+import { AddstudentComponent } from './modules/instructor/test/addstudent/addstudent.component';
+import { ManageassignmentComponent } from './modules/instructor/test/manageassignment/manageassignment.component';
+import { ScheduletestComponent } from './modules/instructor/test/scheduletest/scheduletest.component';
+import { EdittestComponent } from './modules/instructor/test/edittest/edittest.component';
+import { CreatetestComponent } from './modules/instructor/test/createtest/createtest.component';
+import { TestlistComponent } from './modules/instructor/test/testlist/testlist.component';
 import { EditquestionComponent } from './modules/instructor/question/editquestion/editquestion.component';
 import { AddquestionComponent } from './modules/instructor/question/addquestion/addquestion.component';
 import { ManagequestionComponent } from './modules/instructor/question/managequestion/managequestion.component';
@@ -17,13 +23,14 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { TemplateComponent } from './modules/template/template/template.component';
 import { ManagechapterComponent } from './modules/instructor/course/managechapter/managechapter.component';
 import { QuestionbankComponent } from './modules/instructor/question/questionbank/questionbank.component';
+import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.component';
 
 
 const routes: Routes = [
   {
     path: "", component: DefaultComponent,
     children: [
-      { path: "", component: TemplateComponent },
+      { path: "", component: DashboardComponent },
       // Admin starts here
       {
         path: "userhome",
@@ -48,6 +55,18 @@ const routes: Routes = [
       { path: "managequestion", component: ManagequestionComponent },
       { path: "addquestion", component: AddquestionComponent },
       { path: "editquestion", component: EditquestionComponent },
+      { path: "testlist", component: TestlistComponent },
+      { path: "createtest", component: CreatetestComponent },
+      { path: "edittest", component: EdittestComponent },
+      { path: "scheduleTest", component: ScheduletestComponent },
+      { path: "manageassignment", component: ManageassignmentComponent },
+      { path: "addstudent", component: AddstudentComponent },
+
+
+
+
+
+
 
 
 
