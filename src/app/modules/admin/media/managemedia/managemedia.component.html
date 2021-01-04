@@ -11,7 +11,7 @@ Description :- this component is used to manage media
  -->
 
 <br />
-<h4 class="title-header">- Manage Evaluation -</h4>
+<h4 class="title-header">- List Of Course -</h4>
 <!-- <div class="text-center">
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." />
@@ -28,7 +28,7 @@ Description :- this component is used to manage media
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 mx-auto">
                 <mat-form-field appearance="outline" class="field-full-width">
-                    <mat-label>Filter</mat-label>
+                    <mat-label>Category</mat-label>
                     <mat-select>
                         <mat-option value="all">ALL</mat-option>
                         <mat-option value="pending">PENDING</mat-option>
@@ -50,39 +50,39 @@ Description :- this component is used to manage media
                 </ng-container> -->
 
                 <!-- type Column -->
-                <ng-container matColumnDef="type">
+                <ng-container matColumnDef="category">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
-                        Type
+                        Category
                     </th>
                     <td mat-cell *matCellDef="let row">
-                        {{ row.type }}</td>
+                        {{ row.category }}</td>
                 </ng-container>
 
-                <!-- courseName Column -->
-                <ng-container matColumnDef="courseName">
+                <!-- course Column -->
+                <ng-container matColumnDef="course">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
-                        Course Name
+                        Course
                     </th>
                     <td mat-cell *matCellDef="let row">
-                        {{ row.courseName }}</td>
+                        {{ row.course }}</td>
                 </ng-container>
 
-                <!-- size Column -->
-                <ng-container matColumnDef="size">
+                <!-- duration Column -->
+                <ng-container matColumnDef="duration">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
-                        Size
+                        Duration
                     </th>
                     <td mat-cell *matCellDef="let row">
-                        {{ row.size }}</td>
+                        {{ row.duration }}</td>
                 </ng-container>
 
-                <!-- mediaType Column -->
-                <ng-container matColumnDef="mediaType">
+                <!-- cost Column -->
+                <ng-container matColumnDef="cost">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
-                        Media Type
+                        Cost
                     </th>
                     <td mat-cell *matCellDef="let row">
-                        {{ row.mediaType }}</td>
+                        {{ row.cost }}</td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

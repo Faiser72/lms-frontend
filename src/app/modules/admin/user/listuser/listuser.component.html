@@ -12,13 +12,20 @@ Description :- this component is used to display the list of user
 
 <br />
 <h4 class="title-header">- User List -</h4>
-<div class="text-right">
-    <button (click)="routeToAddUser()" class="addButton btn" mat-raised-button color="primary">Add User</button>
-</div>
-<div class="text-center">
-    <mat-form-field>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." />
-    </mat-form-field>
+<div class="row">
+    <div class="col">
+        <div class="text-left">
+            <mat-form-field appearance="outline" class="matFormField">
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." />
+                <mat-icon color="primary" matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col">
+        <div class="text-right">
+            <button (click)="routeToAddUser()" class="addButton btn" mat-raised-button color="primary">Add User</button>
+        </div>
+    </div>
 </div>
 
 <div class="mat-elevation-z8">

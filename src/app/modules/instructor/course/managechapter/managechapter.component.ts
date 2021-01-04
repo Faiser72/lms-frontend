@@ -69,6 +69,10 @@ export class ManagechapterComponent implements OnInit {
     this.route.navigate(['managecourse'])
   }
 
+  routeToManageAssessment(){
+    this.route.navigate(['manageassessment'])
+  }
+
 
   //for AddChapter popup Starts here
   openAddChapterDialog(): void {

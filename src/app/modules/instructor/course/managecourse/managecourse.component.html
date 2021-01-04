@@ -12,13 +12,21 @@ Description :- this component is used to Manage Course
 
 <br />
 <h4 class="title-header">- Course List -</h4>
-<div class="text-right">
-    <button (click)="openAddCourseDialog()" class="addButton btn" mat-raised-button color="primary">New Course</button>
-</div>
-<div class="text-center">
-    <mat-form-field class="matFormField">
-        <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." />
-    </mat-form-field>
+<div class="row">
+    <div class="col">
+        <div class="text-left">
+            <mat-form-field appearance="outline" class="matFormField">
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." />
+                <mat-icon color="primary" matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col">
+        <div class="text-right">
+            <button (click)="openAddCourseDialog()" class="addButton btn" mat-raised-button color="primary">New
+                Course</button>
+        </div>
+    </div>
 </div>
 
 <div class="mat-elevation-z8">

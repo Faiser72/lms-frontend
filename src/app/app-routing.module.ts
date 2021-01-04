@@ -1,3 +1,5 @@
+import { EditassessmentComponent } from './modules/instructor/course/editassessment/editassessment.component';
+import { ManageassessmentComponent } from './modules/instructor/course/manageassessment/manageassessment.component';
 import { AddstudentComponent } from './modules/instructor/test/addstudent/addstudent.component';
 import { ManageassignmentComponent } from './modules/instructor/test/manageassignment/manageassignment.component';
 import { ScheduletestComponent } from './modules/instructor/test/scheduletest/scheduletest.component';
@@ -24,6 +26,7 @@ import { TemplateComponent } from './modules/template/template/template.componen
 import { ManagechapterComponent } from './modules/instructor/course/managechapter/managechapter.component';
 import { QuestionbankComponent } from './modules/instructor/question/questionbank/questionbank.component';
 import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.component';
+import { CreateassessmentComponent } from './modules/instructor/course/createassessment/createassessment.component';
 
 
 const routes: Routes = [
@@ -50,6 +53,9 @@ const routes: Routes = [
       { path: "managecourse", component: ManagecourseComponent },
       { path: "managesession", component: ManagesessionComponent },
       { path: "managechapter", component: ManagechapterComponent },
+      { path: "manageassessment", component: ManageassessmentComponent },
+      { path: "createassessment", component: CreateassessmentComponent },
+      { path: "editassessment", component: EditassessmentComponent },
       { path: "uploadquestionpaper", component: UploadquestionpaperComponent },
       { path: "questionbank", component: QuestionbankComponent },
       { path: "managequestion", component: ManagequestionComponent },

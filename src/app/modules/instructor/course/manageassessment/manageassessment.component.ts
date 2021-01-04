@@ -1,27 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatSnackBar } from '@angular/material';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MatPaginator, MatSort, MatSnackBar, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-managemedia',
-  templateUrl: './managemedia.component.html',
-  styleUrls: ['./managemedia.component.scss']
+  selector: 'app-manageassessment',
+  templateUrl: './manageassessment.component.html',
+  styleUrls: ['./manageassessment.component.scss']
 })
-export class ManagemediaComponent implements OnInit {
+export class ManageassessmentComponent implements OnInit {
 
   dataSource: any;
   displayedColumns: string[] = [
-    "category",
-    "course",
-    "duration",
-    "cost",
+    "name",
+    "question",
+    "user",
+    "action"
   ];
 
   userDetailsList: any;
-  url: string = "../../../../../assets/videos/saiyaara.webm";
-  urlSafe: SafeResourceUrl;
-
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -29,10 +25,9 @@ export class ManagemediaComponent implements OnInit {
   constructor(
     private route: Router,
     private _snackBar: MatSnackBar,
-    public sanitizer: DomSanitizer) { }
+    public dialog: MatDialog,) { }
 
   ngOnInit() {
-    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
   customFilter() {
@@ -51,16 +46,16 @@ export class ManagemediaComponent implements OnInit {
     }
   }
 
+  routeToAddAssessment(){
+    this.route.navigate(['createassessment'])
+  }
+
   routeToDeleteUser(userDetails) {
   }
 
 
-  routeToEditUser(userDetails: any) {
+  routeToEditAssesment() {
+    this.route.navigate(['editassessment'])
   }
 
-  routeToAddUser() {
-    this.route.navigate(['userhome/adduser'])
-  }
 }
-
-

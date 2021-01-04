@@ -6,6 +6,9 @@ import { CommonModule } from '@angular/common';
 import { AddCourse, EditCourse, ManagecourseComponent } from './managecourse/managecourse.component';
 import { AddSession, EditSession, ManagesessionComponent } from './managesession/managesession.component';
 import { ManagechapterComponent, AddChapter, EditChapter } from './managechapter/managechapter.component';
+import { ManageassessmentComponent } from './manageassessment/manageassessment.component';
+import { CreateassessmentComponent } from './createassessment/createassessment.component';
+import { EditassessmentComponent } from './editassessment/editassessment.component';
 
 
 
@@ -17,7 +20,10 @@ import { ManagechapterComponent, AddChapter, EditChapter } from './managechapter
     AddSession, EditSession,
     ManagechapterComponent,
     AddChapter,
-    EditChapter],
+    EditChapter,
+    ManageassessmentComponent,
+    CreateassessmentComponent,
+    EditassessmentComponent],
   imports: [
     CommonModule,
     MaterialImportModuleModule,
