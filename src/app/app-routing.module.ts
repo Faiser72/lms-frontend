@@ -1,3 +1,8 @@
+import { TestcompletedComponent } from './modules/student/testcompleted/testcompleted.component';
+import { TestscheduledComponent } from './modules/student/testscheduled/testscheduled.component';
+import { EvaluateComponent } from './modules/evaluator/evaluate/evaluate.component';
+import { ViewevaluateComponent } from './modules/evaluator/viewevaluate/viewevaluate.component';
+import { EvaluatetestComponent } from './modules/evaluator/evaluatetest/evaluatetest.component';
 import { EditassessmentComponent } from './modules/instructor/course/editassessment/editassessment.component';
 import { ManageassessmentComponent } from './modules/instructor/course/manageassessment/manageassessment.component';
 import { AddstudentComponent } from './modules/instructor/test/addstudent/addstudent.component';
@@ -27,6 +32,9 @@ import { ManagechapterComponent } from './modules/instructor/course/managechapte
 import { QuestionbankComponent } from './modules/instructor/question/questionbank/questionbank.component';
 import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.component';
 import { CreateassessmentComponent } from './modules/instructor/course/createassessment/createassessment.component';
+import { UploadanswersComponent } from './modules/evaluator/uploadanswers/uploadanswers.component';
+import { UploadComponent } from './modules/evaluator/upload/upload.component';
+import { CourseapprovedComponent } from './modules/student/courseapproved/courseapproved.component';
 
 
 const routes: Routes = [
@@ -67,16 +75,21 @@ const routes: Routes = [
       { path: "scheduleTest", component: ScheduletestComponent },
       { path: "manageassignment", component: ManageassignmentComponent },
       { path: "addstudent", component: AddstudentComponent },
-
-
-
-
-
-
-
-
-
       // instructor ends here
+
+      // evaluator starts here
+      { path: "evaluatetest", component: EvaluatetestComponent },
+      { path: "viewevaluate", component: ViewevaluateComponent },
+      { path: "evaluate", component: EvaluateComponent },
+      { path: "uploadanswer", component: UploadanswersComponent },
+      { path: "upload", component: UploadComponent },
+      // evaluator ends here
+
+      // student starts here
+      { path: "courseapproved", component: CourseapprovedComponent },
+      { path: "testscheduled", component: TestscheduledComponent },
+      { path: "testcompleted", component: TestcompletedComponent }
+      // student ends here
 
     ]
   }];

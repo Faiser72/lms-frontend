@@ -1,3 +1,5 @@
+import { StudentModule } from './../../modules/student/student.module';
+import { EvaluatorModule } from './../../modules/evaluator/evaluator.module';
 import { DashboardModule } from './../../modules/dashboard/dashboard.module';
 import { InstructorModule } from './../../modules/instructor/instructor.module';
 import { NgModule } from "@angular/core";
@@ -26,7 +28,9 @@ import { AdminModule } from "src/app/modules/admin/admin.module";
     DashboardModule,
     TemplateModule,
     AdminModule,
-    InstructorModule
+    InstructorModule,
+    EvaluatorModule,
+    StudentModule
   ],
 })
 export class DefaultModule { }

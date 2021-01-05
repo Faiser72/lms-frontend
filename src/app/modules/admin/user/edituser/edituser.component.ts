@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -24,7 +25,8 @@ export class EdituserComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private router: Router,
-    private appComponent: AppComponent) {
+    private appComponent: AppComponent,
+    private location: Location) {
     // for date validation starts
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -84,7 +86,7 @@ export class EdituserComponent implements OnInit {
     this.router.navigate(["/home/appointmenthome/listappointment"]);
   }
 
-  reset() {
-
+  back() {
+    this.location.back();
   }
 }

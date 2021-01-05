@@ -1,23 +1,21 @@
-import { NavigationExtras, Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatSnackBar, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort, MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-listuser',
-  templateUrl: './listuser.component.html',
-  styleUrls: ['./listuser.component.scss']
+  selector: 'app-testscheduled',
+  templateUrl: './testscheduled.component.html',
+  styleUrls: ['./testscheduled.component.scss']
 })
-export class ListuserComponent implements OnInit {
+export class TestscheduledComponent implements OnInit {
 
   dataSource: any;
   displayedColumns: string[] = [
-    "slNo",
-    "userName",
-    "emailId",
-    "primaryRoles",
-    "role",
-    "registerNo",
-    "action"
+    "courseName",
+    "testName",
+    "startDate",
+    "endDate",
+    "maxScore",
   ];
 
   userDetailsList: any;
@@ -48,15 +46,6 @@ export class ListuserComponent implements OnInit {
     }
   }
 
-  routeToDeleteUser(userDetails) {
-  }
-
-
-  routeToEditUser() {
-    this.route.navigate(['userhome/edituser'])
-  }
-
-  routeToAddUser() {
-    this.route.navigate(['userhome/adduser'])
-  }
 }
+
+

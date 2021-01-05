@@ -65,7 +65,7 @@ Description :- this component is used to add user
             <div class="row d-flex justify-content-around ml-5 mr-5 w-75 mx-auto">
                 <div class="col-lg-6 col-sm-12 col-md-6">
                     <mat-form-field appearance="outline" class="field-full-width">
-                        <mat-label>Primary Role</mat-label>
+                        <mat-label>Primary Role <sup class="text-danger">*</sup></mat-label>
                         <mat-select [formControl]="primaryRole" multiple>
                             <mat-select-trigger>
                                 {{primaryRole.value ? primaryRole.value[0] : ''}}

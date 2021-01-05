@@ -1,0 +1,93 @@
+<!-- 
+File Name :-evaluate.component.html	   	Created Date :-05-01-2021     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
+	
+Description :- this component is used to Evaluate					
+	
+============================================================================================================================
+  Sl.No			    Description			                                Modified By		              	      Modified Date	
+============================================================================================================================
+	
+	
+ -->
+
+<br />
+<h4 class="title-header">- Evaluate -</h4>
+
+<div class="mat-elevation-z8 mt-5">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <!-- <ng-container matColumnDef="slNo">
+               <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">Sl.no</th>
+               <td mat-cell *matCellDef="let row">
+                   {{dataSource.filteredData.indexOf(row) + 1}}.</td>
+           </ng-container> -->
+
+        <!-- student Column -->
+        <ng-container matColumnDef="questionNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Question No
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.questionNo }}</td>
+        </ng-container>
+
+        <!-- answerText Column -->
+        <ng-container matColumnDef="answerText">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Answer Text
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.answerText }}</td>
+        </ng-container>
+
+        <!-- answerVideo Column -->
+        <ng-container matColumnDef="answerVideo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Answer Video
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.answerVideo }}</td>
+        </ng-container>
+
+        <!-- answerImage Column -->
+        <ng-container matColumnDef="answerImage">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                answer Image
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.answerImage }}</td>
+        </ng-container>
+
+        <!-- maxScore Column -->
+        <ng-container matColumnDef="maxScore">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Max Score
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.maxScore }}</td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <!-- <ng-container matColumnDef="action">
+             <th mat-header-cell *matHeaderCellDef class="table_header">Action</th>
+             <td mat-cell *matCellDef="let row">
+                 <div class="action-btn">
+                     <a (click)="routeToView()" class="action-link">
+                         <mat-icon class="edit-btn" title="View">remove_red_eye</mat-icon>
+                     </a>
+                 </div>
+             </td>
+         </ng-container> -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="row-style" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+<div class="text-right mt-5">
+    <button mat-raised-button color='primary' type="submit"><mat-icon class="mr-2">save</mat-icon> Submit Evaluation</button>
+    <button mat-raised-button color='warn' type="button" class="ml-5"> Cancel</button>
+
+</div>
+<br />

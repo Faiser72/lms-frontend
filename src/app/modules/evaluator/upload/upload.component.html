@@ -1,0 +1,71 @@
+<!-- 
+File Name :-uploadanswer.component.html	   	Created Date :-05-01-2021     Created By :- Faiser I (Emp. Id : VTPL/BLR/006)
+	
+Description :- this component is used to upload asnwer					
+	
+============================================================================================================================
+  Sl.No			    Description			                                Modified By		              	      Modified Date	
+============================================================================================================================
+	
+	
+ -->
+
+<br />
+<h4 class="title-header mb-5">- Upload -</h4>
+
+<h5> <span class="test-color">Test:</span> {{testName}}</h5>
+
+<div class="mat-elevation-z8 mt-3">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <!-- <ng-container matColumnDef="slNo">
+                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">Sl.no</th>
+                 <td mat-cell *matCellDef="let row">
+                     {{dataSource.filteredData.indexOf(row) + 1}}.</td>
+             </ng-container> -->
+
+        <!-- questionNo Column -->
+        <ng-container matColumnDef="questionNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Question No
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.questionNo }}</td>
+        </ng-container>
+
+        <!-- question Column -->
+        <ng-container matColumnDef="question">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Question
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.question }}</td>
+        </ng-container>
+
+        <!-- uploadAnswer Column -->
+        <ng-container matColumnDef="uploadAnswer">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_header">
+                Upload Answer
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.uploadAnswer }}</td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="table_header">Action</th>
+            <td mat-cell *matCellDef="let row">
+                <div class="action-btn">
+                    <a class="action-link">
+                        <mat-icon class="edit-btn" title="View">remove_red_eye</mat-icon>
+                    </a>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="row-style" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

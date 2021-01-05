@@ -1,23 +1,21 @@
-import { NavigationExtras, Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatSnackBar, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort, MatSnackBar, MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-listuser',
-  templateUrl: './listuser.component.html',
-  styleUrls: ['./listuser.component.scss']
+  selector: 'app-testcompleted',
+  templateUrl: './testcompleted.component.html',
+  styleUrls: ['./testcompleted.component.scss']
 })
-export class ListuserComponent implements OnInit {
+export class TestcompletedComponent implements OnInit {
 
   dataSource: any;
   displayedColumns: string[] = [
-    "slNo",
-    "userName",
-    "emailId",
-    "primaryRoles",
-    "role",
-    "registerNo",
-    "action"
+    "courseName",
+    "testName",
+    "scheduledOn",
+    "submittedOn",
+    // "action"
   ];
 
   userDetailsList: any;
@@ -27,7 +25,8 @@ export class ListuserComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private _snackBar: MatSnackBar) { }
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,) { }
 
   ngOnInit() {
   }
@@ -52,11 +51,7 @@ export class ListuserComponent implements OnInit {
   }
 
 
-  routeToEditUser() {
-    this.route.navigate(['userhome/edituser'])
+  routeToEditUser(userDetails: any) {
   }
 
-  routeToAddUser() {
-    this.route.navigate(['userhome/adduser'])
-  }
 }
