@@ -1,3 +1,5 @@
+import { MaterialImportModuleModule } from 'src/app/shared/material-import-module/material-import-module.module';
+import { WebsiteModule } from './website/website.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +16,9 @@ import { DefaultModule } from './layouts/default/default.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DefaultModule
+    DefaultModule,
+    WebsiteModule,
+    // MaterialImportModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

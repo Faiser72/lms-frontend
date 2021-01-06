@@ -1,3 +1,4 @@
+import { LandingpageComponent } from './website/landingpage/landingpage.component';
 import { TestcompletedComponent } from './modules/student/testcompleted/testcompleted.component';
 import { TestscheduledComponent } from './modules/student/testscheduled/testscheduled.component';
 import { EvaluateComponent } from './modules/evaluator/evaluate/evaluate.component';
@@ -38,8 +39,9 @@ import { CourseapprovedComponent } from './modules/student/courseapproved/course
 
 
 const routes: Routes = [
+  {path:"", component:LandingpageComponent},
   {
-    path: "", component: DefaultComponent,
+    path: "home", component: DefaultComponent,
     children: [
       { path: "", component: DashboardComponent },
       // Admin starts here
