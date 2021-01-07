@@ -56,6 +56,6 @@ export class EvaluateComponent implements OnInit {
   }
 
   routeToEvaluate(){
-    this.route.navigate(['/manageassignment'])
+    this.route.navigate(['/home/manageassignment'])
   }
 }

@@ -17,6 +17,16 @@ export class LandingpageComponent implements OnInit {
   width: number = 100;
   height: number = 100;
 
+  card:any[] = [
+    { id: 11, name: 'Course 1', cost:1300 },
+    { id: 12, name: 'Course 2', cost:1240 },
+    { id: 13, name: 'Course 3', cost:2310 },
+    { id: 14, name: 'Course 4', cost:1200 },
+    { id: 15, name: 'Course 5', cost:1420 },
+    { id: 16, name: 'Course 6', cost:1290 },
+
+  ];
+
 
   ngOnInit() {
 
@@ -26,15 +36,15 @@ export class LandingpageComponent implements OnInit {
           $(".navbar-area").removeClass("sticky");
           $(".navbar .navbar-brand img").attr("src", "assets/images/logo.svg");
       } else {
-          $(".navbar-area").addClass("sticky");
+          $(".navbar-area").addClass("sticky"); 
           $(".navbar .navbar-brand img").attr("src", "assets/images/logo-2.svg");
       }
   });
 
     this.myStyle = {
-      'position': 'fixed',
+      'position': 'absolute',
       'width': '100%',
-      'height': '100%',
+      'height': '70%',
       'z-index': -1,
       'top': 0,
       'left': 0,

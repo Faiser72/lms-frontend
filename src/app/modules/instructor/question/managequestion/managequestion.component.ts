@@ -60,10 +60,10 @@ export class ManagequestionComponent implements OnInit {
   }
 
   routeToAddQuestion() {
-    this.route.navigate(['/addquestion'])
+    this.route.navigate(['/home/addquestion'])
   }
 
   routeToEditQuestion(){
-    this.route.navigate(['/editquestion'])
+    this.route.navigate(['/home/editquestion'])
   }
 }

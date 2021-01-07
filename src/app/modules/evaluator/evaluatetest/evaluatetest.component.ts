@@ -53,10 +53,10 @@ export class EvaluatetestComponent implements OnInit {
 
 
   routeToView() {
-    this.route.navigate(['/viewevaluate'])
+    this.route.navigate(['/home/viewevaluate'])
   }
 
   routeToEvaluate(){
-    this.route.navigate(['/evaluate'])
+    this.route.navigate(['/home/evaluate'])
   }
 }

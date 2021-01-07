@@ -44,6 +44,8 @@ const routes: Routes = [
     path: "home", component: DefaultComponent,
     children: [
       { path: "", component: DashboardComponent },
+      { path: "dashboard", component: DashboardComponent },
+
       // Admin starts here
       {
         path: "userhome",

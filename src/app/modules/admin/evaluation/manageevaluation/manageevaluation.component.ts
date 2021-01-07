@@ -56,7 +56,7 @@ export class ManageevaluationComponent implements OnInit {
   }
 
   routeToAddUser() {
-    this.route.navigate(['userhome/adduser'])
+    this.route.navigate(['home/userhome/adduser'])
   }
 }
 

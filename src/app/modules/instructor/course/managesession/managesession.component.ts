@@ -56,11 +56,11 @@ export class ManagesessionComponent implements OnInit {
   }
 
   routeToAddUser() {
-    this.route.navigate(['userhome/adduser'])
+    this.route.navigate(['home/userhome/adduser'])
   }
 
   routeToChapter(){
-    this.route.navigate(['/managechapter'])
+    this.route.navigate(['/home/managechapter'])
   }
 
   //for Add Session popup Starts here

@@ -47,7 +47,7 @@ export class ManageassessmentComponent implements OnInit {
   }
 
   routeToAddAssessment(){
-    this.route.navigate(['createassessment'])
+    this.route.navigate(['home/createassessment'])
   }
 
   routeToDeleteUser(userDetails) {
@@ -55,7 +55,7 @@ export class ManageassessmentComponent implements OnInit {
 
 
   routeToEditAssesment() {
-    this.route.navigate(['editassessment'])
+    this.route.navigate(['home/editassessment'])
   }
 
 }

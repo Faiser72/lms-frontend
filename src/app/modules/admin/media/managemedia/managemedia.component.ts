@@ -59,7 +59,7 @@ export class ManagemediaComponent implements OnInit {
   }
 
   routeToAddUser() {
-    this.route.navigate(['userhome/adduser'])
+    this.route.navigate(['home/userhome/adduser'])
   }
 }
 

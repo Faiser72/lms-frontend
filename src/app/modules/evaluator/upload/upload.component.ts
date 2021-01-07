@@ -48,6 +48,6 @@ export class UploadComponent implements OnInit {
   }
 
   routeToUpload() {
-    this.route.navigate(['/upload'])
+    this.route.navigate(['/home/upload'])
   }
 }

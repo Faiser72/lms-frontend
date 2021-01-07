@@ -56,15 +56,15 @@ export class QuestionbankComponent implements OnInit {
   }
 
   routeToAddUser() {
-    this.route.navigate(['userhome/adduser'])
+    this.route.navigate(['home/userhome/adduser'])
   }
 
   routeToChapter() {
-    this.route.navigate(['/managechapter'])
+    this.route.navigate(['/home/managechapter'])
   }
 
   routeToManageQuestion(){
-    this.route.navigate(['/managequestion'])
+    this.route.navigate(['/home/managequestion'])
   }
 
   //for Add QuestionPaper popup Starts here

@@ -58,7 +58,7 @@ export class ManagechapterComponent implements OnInit {
   }
 
   routeToSession() {
-    this.route.navigate(['managesession'])
+    this.route.navigate(['home/managesession'])
   }
 
 
@@ -66,11 +66,11 @@ export class ManagechapterComponent implements OnInit {
   }
 
   routeToCourse() {
-    this.route.navigate(['managecourse'])
+    this.route.navigate(['home/managecourse'])
   }
 
   routeToManageAssessment(){
-    this.route.navigate(['manageassessment'])
+    this.route.navigate(['home/manageassessment'])
   }
 
 

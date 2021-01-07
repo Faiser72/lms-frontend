@@ -53,10 +53,10 @@ export class ListuserComponent implements OnInit {
 
 
   routeToEditUser() {
-    this.route.navigate(['userhome/edituser'])
+    this.route.navigate(['home/userhome/edituser'])
   }
 
   routeToAddUser() {
-    this.route.navigate(['userhome/adduser'])
+    this.route.navigate(['home/userhome/adduser'])
   }
 }

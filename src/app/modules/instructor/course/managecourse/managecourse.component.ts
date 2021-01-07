@@ -57,11 +57,11 @@ export class ManagecourseComponent implements OnInit {
   }
 
   routeToAddUser() {
-    this.route.navigate(['userhome/adduser'])
+    this.route.navigate(['home/userhome/adduser'])
   }
 
   routeToOpenSession(){
-    this.route.navigate(['/managesession'])
+    this.route.navigate(['/home/managesession'])
   }
 
   //for Add Course popup Starts here
