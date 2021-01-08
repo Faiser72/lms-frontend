@@ -1,6 +1,9 @@
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AddCategory } from 'src/app/modules/instructor/category/managecategory/managecategory.component';
 
 
 @Component({
@@ -10,7 +13,8 @@ import * as $ from 'jquery';
 })
 export class LandingpageComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router,
+    public dialog: MatDialog) { }
 
   myStyle: object = {};
   myParams: object = {};
@@ -84,10 +88,82 @@ export class LandingpageComponent implements OnInit {
         },
       }
     };
+
+    //===== Back to top
+
+    // Show or hide the sticky footer button
+    $(window).on('scroll', function (event) {
+      if ($(this).scrollTop() > 600) {
+          $('.back-to-top').fadeIn(200)
+      } else {
+          $('.back-to-top').fadeOut(200)
+      }
+  });
+
+
+  //Animate the scroll to yop
+  $('.back-to-top').on('click', function (event) {
+      event.preventDefault();
+
+      $('html, body').animate({
+          scrollTop: 0,
+      }, 100);
+  });
   }
 
   routeToHome() {
     this.route.navigate(['/home'])
   }
 
+  //for Login popup Starts here
+  openLoginDialog(): void {
+    var printObj = {
+
+    }
+    const dialogRef = this.dialog.open(Login, {
+      width: "400px",
+      height: "600px",
+      data: { pageValue: printObj }
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed', result);
+    });
+  }
+  //for Login popup ends here
+
 }
+
+
+//Login Starts Here
+@Component({
+  selector: "login",
+  templateUrl: "login.html",
+  styleUrls: ["./landingpage.component.scss"],
+})
+export class Login {
+
+  printObj;
+  addCategoryForm: FormGroup;
+
+  constructor(private route: ActivatedRoute,
+    public dialog: MatDialog,
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<Login>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {
+    this.printObj = data.pageValue;
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  ngOnInit() {
+
+  }
+
+  close() {
+    this.dialogRef.close();
+  }
+}
+//Login ends Here
