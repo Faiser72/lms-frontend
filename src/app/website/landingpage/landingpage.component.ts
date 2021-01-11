@@ -20,14 +20,15 @@ export class LandingpageComponent implements OnInit {
   myParams: object = {};
   width: number = 100;
   height: number = 100;
+  cartCount: number = 12;
 
-  card:any[] = [
-    { id: 11, name: 'Course 1', cost:1300 },
-    { id: 12, name: 'Course 2', cost:1240 },
-    { id: 13, name: 'Course 3', cost:2310 },
-    { id: 14, name: 'Course 4', cost:1200 },
-    { id: 15, name: 'Course 5', cost:1420 },
-    { id: 16, name: 'Course 6', cost:1290 },
+  card: any[] = [
+    { id: 11, name: 'Course 1', cost: 1300 },
+    { id: 12, name: 'Course 2', cost: 1240 },
+    { id: 13, name: 'Course 3', cost: 2310 },
+    { id: 14, name: 'Course 4', cost: 1200 },
+    { id: 15, name: 'Course 5', cost: 1420 },
+    { id: 16, name: 'Course 6', cost: 1290 },
 
   ];
 
@@ -37,13 +38,13 @@ export class LandingpageComponent implements OnInit {
     $(window).on('scroll', function (event) {
       var scroll = $(window).scrollTop();
       if (scroll < 20) {
-          $(".navbar-area").removeClass("sticky");
-          $(".navbar .navbar-brand img").attr("src", "assets/images/logo.svg");
+        $(".navbar-area").removeClass("sticky");
+        $(".navbar .navbar-brand img").attr("src", "assets/images/logo.svg");
       } else {
-          $(".navbar-area").addClass("sticky"); 
-          $(".navbar .navbar-brand img").attr("src", "assets/images/logo-2.svg");
+        $(".navbar-area").addClass("sticky");
+        $(".navbar .navbar-brand img").attr("src", "assets/images/logo-2.svg");
       }
-  });
+    });
 
     this.myStyle = {
       'position': 'absolute',
@@ -94,21 +95,21 @@ export class LandingpageComponent implements OnInit {
     // Show or hide the sticky footer button
     $(window).on('scroll', function (event) {
       if ($(this).scrollTop() > 600) {
-          $('.back-to-top').fadeIn(200)
+        $('.back-to-top').fadeIn(200)
       } else {
-          $('.back-to-top').fadeOut(200)
+        $('.back-to-top').fadeOut(200)
       }
-  });
+    });
 
 
-  //Animate the scroll to yop
-  $('.back-to-top').on('click', function (event) {
+    //Animate the scroll to yop
+    $('.back-to-top').on('click', function (event) {
       event.preventDefault();
 
       $('html, body').animate({
-          scrollTop: 0,
+        scrollTop: 0,
       }, 100);
-  });
+    });
   }
 
   routeToHome() {
@@ -131,6 +132,24 @@ export class LandingpageComponent implements OnInit {
     });
   }
   //for Login popup ends here
+
+
+  //for Cart popup Starts here
+  openCartDialog(): void {
+    var printObj = {
+
+    }
+    const dialogRef = this.dialog.open(Cart, {
+      width: "400px",
+      height: "600px",
+      data: { pageValue: printObj }
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed', result);
+    });
+  }
+  //for Cart popup ends here
 
 }
 
@@ -167,3 +186,37 @@ export class Login {
   }
 }
 //Login ends Here
+
+
+//Cart Starts Here
+@Component({
+  selector: "cart",
+  templateUrl: "cart.html",
+  styleUrls: ["./landingpage.component.scss"],
+})
+export class Cart {
+
+  printObj;
+  addCategoryForm: FormGroup;
+
+  constructor(private route: ActivatedRoute,
+    public dialog: MatDialog,
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<Cart>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {
+    this.printObj = data.pageValue;
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  ngOnInit() {
+
+  }
+
+  close() {
+    this.dialogRef.close();
+  }
+}
+//Cart ends Here
