@@ -20,7 +20,7 @@ export class LandingpageComponent implements OnInit {
   myParams: object = {};
   width: number = 100;
   height: number = 100;
-  cartCount: number = 12;
+  cartCount: number = 0;
 
   card: any[] = [
     { id: 11, name: 'Course 1', cost: 1300 },
@@ -114,6 +114,15 @@ export class LandingpageComponent implements OnInit {
 
   routeToHome() {
     this.route.navigate(['/home'])
+  }
+  items = [];
+  cartObject(cardObject) {
+    this.items.push(cardObject);
+    console.log(this.items);
+    this.cartCount=this.cartCount+1;
+
+    localStorage.setItem("cart", JSON.stringify(this.items))
+
   }
 
   //for Login popup Starts here
