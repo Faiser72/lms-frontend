@@ -12,7 +12,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     navigator.geolocation.getCurrentPosition((position)=>{
       console.log(`lat:${position.coords.latitude}, lon:${position.coords.longitude}`);
-      
     })
   }
 
